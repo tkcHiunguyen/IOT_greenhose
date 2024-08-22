@@ -1,0 +1,417 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+span {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 25px;
+}
+
+.display-none {
+    display: none;
+}
+
+/* h6{
+    font-size: 20px;
+} */
+
+/* h3{
+    min-width: 385px;
+} */
+
+.border50 {
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.mg_auto {
+    margin: auto;
+}
+
+.mg_mid {
+    margin: 0 auto;
+}
+
+.center-parent {
+    position: relative;
+}
+
+body {
+    /* background-image: url(https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+    background-image: url(https://png.pngtree.com/background/20210712/original/pngtree-mysterious-cosmic-space-galaxy-nebula-background-picture-image_1179108.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#curClock {
+    color: white;
+    line-height: 59.5px
+}
+
+
+.background_color_grey {
+    background-color: #f0f0f0;
+}
+
+.text-center {
+    text-align: center;
+
+}
+
+.text-item {
+    align-items: center;
+}
+
+.border {
+    border: 3px solid #000;
+    margin: 3px;
+    border-radius: 8px;
+}
+
+.box-borderbox {
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-third {
+    width: 33.33333%;
+}
+
+.col-half {
+    width: 50%;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.col-four {
+    width: 25%
+}
+
+.btn,
+.btn1 {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: #000 solid 2px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn2 {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #f0f0f0;
+    border: #000 solid 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 13px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.size {
+    max-width: 1200px;
+    min-width: 700px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.light {
+    background-color: red;
+}
+
+.hei79 {
+    height: 79px;
+}
+
+.hei100 {
+    height: auto;
+}
+
+
+
+.background_color {
+    background-color: blanchedalmond;
+}
+
+.mg_mid9 {
+    margin: 9.6px 0;
+}
+
+/* btn trang thai 1*/
+.box,
+.box2 {
+    width: 100px;
+    height: 30px;
+    background-color: #777777;
+    transition: all 300ms ease-in-out;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.boxactive {
+    background-color: #FFFF66;
+    box-shadow: 0 0 10px yellowgreen, 0 0 20px #CCFF00;
+}
+
+.box1,
+.box3 {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: #99FFFF;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.btnactive {
+    margin-left: 70px;
+}
+
+.border_dra3px {
+    border: 3px solid black;
+}
+
+.mg_tba {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+
+.display-pc,
+.mobile {
+    display: none;
+}
+
+.sizeapp {
+    max-width: 739px;
+    min-width: 380px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width:637px) {
+    .display-pc {
+        display: block;
+    }
+}
+
+@media (max-width:629px) {
+    .mobile {
+        display: block;
+    }
+}
+
+.hei71 {
+    height: 71px;
+}
+
+.close {
+    float: right;
+    width: 40;
+    height: 40;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col {
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-third {
+    width: 33.33333%;
+}
+
+.col-half {
+    width: 50%;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.bodercontainer {
+    border: 1px solid black;
+    width: 750px;
+    height: 430px;
+    /* background-image: url(https://png.pngtree.com/background/20210710/original/pngtree-simple-cartoon-farm-advertisement-picture-image_1015328.jpg); */
+    /* background-size: cover; */
+    background-color: white;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+}
+
+.close:hover {
+    background-color: #ccc;
+    color: #000;
+    cursor: pointer;
+    opacity: 1;
+}
+
+.texth2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.open {
+    display: flex !important;
+}
+
+.modal-contaiter {
+    background-color: #fff;
+    min-height: 200px;
+    position: relative;
+    max-width: calc(100% - 32px);
+    animation: modalFadeIn ease .6s;
+}
+
+
+.setting-btn {
+    float: right;
+    line-height: 59.5px;
+    padding: 0 21px;
+    font-size: 20px;
+    color: white;
+}
+
+.setting-btn:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+.tieude {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input_btn {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.text17 {
+    font-size: 17px;
+    font-weight: bold
+}
+
+.btnsub {
+    float: right;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.status1 {
+    color: red;
+}
+
+.status2 {
+    color: red;
+}
+
+.modalWarning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.warning-content {
+    background-color: #fff;
+    width: 50%;
+    max-height: 75%;
+    margin: 2rem;
+    padding: 1.5rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    overflow: auto;
+    position: relative;
+}
+
+.warning-content h1 {
+    margin: 1rem 0;
+    line-height: 2rem;
+    font-size: 35px;
+    margin-bottom: 2rem;
+    /* justify-content: center; */
+}
+
+.warning-content p {
+    margin: 1rem 0;
+    line-height: 1rem;
+    font-size: 25px;
+    /* position: relative; */
+}
+
+.warning-close {
+    position: absolute;
+    /* top: 0;
+    right: 0; */
+    right: 10px;
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 0 0.75rem;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    user-select: none;
+}
+
+.warning-close:hover,
+.warning-close:focus {
+    color: rgba(0, 0, 0, 0.5);
+}

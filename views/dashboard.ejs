@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/dashboard/main.css">
+    <link rel="stylesheet" href="/css/dashboard/header.css">
+    <link rel="stylesheet" href="/css/themify-icons/themify-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+    <link rel="icon" type="image/x-icon" href="/img/symbol.JPG">
+    <title>Bảng Điều Khiển</title>
+</head>
+
+<body>
+    <div id="header">
+        <div class="col-quarter icon-web">
+            <img src="/img/logo-canh-cay.PNG" alt="logo-IUH" class="logo-canh-cay">
+            <h5>DHDKTD K15</h5>
+        </div>
+        <div class="col-half text-cennter" style="min-width: 535px;">
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/config">Configuration</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <!-- <li><a href="#">
+                        More
+                        <i class="nav-down ti-angle-down"></i>
+                    </a>
+                    <ul class="subnav">
+                        <li><a href="">Merchandise</a></li>
+                        <li><a href="">Extras</a></li>
+                        <li><a href="">Media</a></li>
+                    </ul>
+                </li> -->
+            </ul>
+        </div>
+        <div class="col-quarter" style="min-width: 230px;">
+            <div class="input-user user-btn">
+                Log In
+            </div>
+            <div class="user-btn">
+                <i class="ti-settings js-buy-ticket setting-btn" style="line-height: 59.5px;"></i>
+            </div>
+            <div><span id="curClock"></span></div>
+        </div>
+    </div>
+    <!-- DASHH BOARD -->
+    <div style="margin-top: 70px;">
+        <div class="size border box-borderbox">
+            <h1 class="border box-borderbox text-center">QUẢN LÝ NHÀ KÍNH</h1>
+            <div class="row">
+                <div class="col-half border">
+                    <div style="display: flex; align-items:center;" class="border">
+                        <h5 class=" text-center text-center" style="margin-left: auto;margin-right:auto">Nhà kính 1</h5>
+                        <h4 style=" position: absolute;">
+                            <div class="status1">Mất kết nối</div>
+                        </h4>
+                    </div>
+                    <h5 class="border text-center">YẾU TỐ MÔI TRƯỜNG</h5>
+                    <div class="row">
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center TemI2C1 ">
+                                <h4 class="border "> Nhiệt độ</h4>
+                                <div class="mg_mid9"><span class="nd1">
+                                        <div class="temI2C1"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center LightChart1">
+                                <h4 class="border">Ánh sáng</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="lightI2C1"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center HumI2C1">
+                                <h4 class="border">Độ ẩm</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="humI2C1"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h5 class="border text-center">YẾU TỐ TRONG ĐẤT</h5>
+                    <div class="row">
+
+                        <div class="col-half boder ">
+                            <div class="border hei71 background_color text-center PH1">
+                                <h4 class="border">pH</h4>
+                                <div class="mg_mid9"><span>NaN</span></div>
+                            </div>
+                        </div>
+                        <div class="col-half boder ">
+                            <div class="border hei71 background_color text-center Do-am2 ">
+                                <h4 class="border">Độ ẩm</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="do_am_dat1"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center">
+                                <h4 class="border">N</h4>
+                                <div class="mg_mid9"><span>
+                                        NaN
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center">
+                                <h4 class="border">P</h4>
+                                <div class="mg_mid9"><span>
+                                        NaN
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color text-center">
+                                <h4 class="border">K</h4>
+                                <div class="mg_mid9"><span>
+                                        NaN
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BIEU DO -->
+                    <div class="col-full">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <!-- Selec mod -->
+                    <h5 class="border text-center">CHỌN CHẾ ĐỘ</h5>
+                    <div class="border row">
+                        <span class="mg_tba border dis_manual light">MANUAL</span>
+                        <div class="box border">
+                            <div class="box1 border_dra3px"></div>
+                        </div>
+                        <span class="mg_tba border dis_auto">AUTO</span>
+                    </div>
+                    <!-- <select name="" id="elements" onchange="luutru">
+                            <option value="0" class="value1">AUTO</option>
+                            <option value="1" class="value2">MANUAL</option>
+                        </select> -->
+                    <h5 class="border text-center">Trạng Thái</h5>
+                    <div class="row">
+                        <div class="col-half border background_color hei79 text-center center-parent">
+                            <h4 class="border text-center">ĐÈN</h4>
+                            <input type="button" id="btn1" class="btn btn_on1 " value="ON">
+                            <!-- <input type="button" class="btn2 btn_on7 display-none" value="ON"> -->
+                            <div class="display-none element1">
+                                <div class="btn2 center-me btn_onauto1">ON</div>
+                            </div>
+                        </div>
+                        <div class="col-half border background_color text-center hei79">
+                            <h4 class="border text-center">QUẠT</h4>
+                            <input type="button" class="btn btn_on2 " value="ON">
+                            <!-- <input type="button" class="btn2 btn_on8 display-none" value="ON"> -->
+                            <div class="display-none element2">
+                                <div class="btn2 center-me btn_onauto2">ON</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- 4 BOM -->
+                    <div class="row">
+                        <!-- BOM1 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 1</h4>
+                            <input type="button" class="btn btn_on3 " value="ON">
+
+                            <div class="display-none element3">
+                                <div class="btn2 center-me btn_onauto3">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM2 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 2</h4>
+                            <input type="button" class="btn btn_on4 " value="ON">
+
+                            <div class="display-none element4">
+                                <div class="btn2 center-me btn_onauto4">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM3 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 3</h4>
+                            <input type="button" class="btn btn_on5 " value="ON">
+
+                            <div class="display-none element5">
+                                <div class="btn2 center-me btn_onauto5">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM4 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 4</h4>
+                            <input type="button" class="btn btn_on6 " value="ON">
+
+                            <div class="display-none element6">
+                                <div class="btn2 center-me btn_onauto6">ON</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NHA KINH 2 -->
+                <div class="col-half border" style="position:relative">
+                    <div style="display: flex; align-items:center;" class="border">
+                        <h5 class=" text-center text-center" style="margin-left: auto;margin-right:auto">Nhà kính 2</h5>
+                        <h4 style=" position: absolute;">
+                            <div class="status2">Mất kết nối</div>
+                        </h4>
+                    </div>
+                    <h5 class="border text-center text-center">YẾU TỐ MÔI TRƯỜNG</h5>
+                    <div class="row text-center">
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color TemI2C2">
+                                <h4 class="border ">Nhiệt độ</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="temI2C2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder ">
+                            <div class="border hei71 background_color LightChart2">
+                                <h4 class="border">Ánh sáng</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="lightI2C2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder HumI2C2">
+                            <div class="border hei71 background_color">
+                                <h4 class="border">Độ ẩm</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="humI2C2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <h5 class="border text-center">YẾU TỐ TRONG ĐẤT</h5>
+                    <div class="row">
+                        <div class="col-half boder valuepH2">
+                            <div class="border hei71 background_color text-center ">
+                                <h4 class="border">pH</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="pH2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-half boder valueHumdity2">
+                            <div class="border hei71 background_color text-center ">
+                                <h4 class="border">Độ ẩm</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="hum2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NPK -->
+                    <div class="row">
+                        <div class="col-third boder valueN2">
+                            <div class="border hei71 background_color text-center ">
+                                <h4 class="border">N</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="N2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder valueP2">
+                            <div class="border hei71 background_color text-center">
+                                <h4 class="border">P</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="P2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                        <div class="col-third boder valueK2">
+                            <div class="border hei71 background_color text-center">
+                                <h4 class="border">K</h4>
+                                <div class="mg_mid9"><span>
+                                        <div class="K2"></div>
+                                    </span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bieu do 2 -->
+                    <div class="col-full">
+                        <canvas id="myChart1"></canvas>
+                    </div>
+                    <h5 class="border text-center">CHỌN CHẾ ĐỘ</h5>
+                    <div class="border row">
+                        <span class="mg_tba border dis_manual2 light">MANUAL</span>
+                        <div class="box2 border">
+                            <div class="box3 border_dra3px"></div>
+                        </div>
+                        <span class="mg_tba border dis_auto2 ">AUTO</span>
+                    </div>
+                    <h5 class="border text-center">Trạng Thái</h5>
+                    <div class="row text-center">
+                        <div class="col-half border background_color hei79">
+                            <h4 class="border">ĐÈN</h4>
+                            <input type="button" class="btn1 btn_on21 " value="ON">
+                            <div class="display-none element21">
+                                <div class="btn2 center-me btn_onauto21 ">ON</div>
+                            </div>
+                        </div>
+                        <div class="col-half border background_color hei79">
+                            <h4 class="border">QUẠT</h4>
+                            <input type="button" class="btn1 btn_on22 " value="ON">
+                            <div class="display-none element22">
+                                <div class="btn2 center-me btn_onauto22">ON</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <!-- BOM1 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 1</h4>
+                            <input type="button" class="btn1 btn_on23 " value="ON">
+
+                            <div class="display-none element23">
+                                <div class="btn2 center-me btn_onauto23">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM2 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 2</h4>
+                            <input type="button" class="btn1 btn_on24 " value="ON">
+
+                            <div class="display-none element24">
+                                <div class="btn2 center-me btn_onauto24">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM3 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 3</h4>
+                            <input type="button" class="btn1 btn_on25 " value="ON">
+
+                            <div class="display-none element25">
+                                <div class="btn2 center-me btn_onauto25">ON</div>
+                            </div>
+                        </div>
+                        <!-- BOM4 -->
+                        <div class="col-four border background_color text-center hei79">
+                            <h4 class="border text-center">BƠM 4</h4>
+                            <input type="button" class="btn1 btn_on26 " value="ON">
+
+                            <div class="display-none element26">
+                                <div class="btn2 center-me btn_onauto26">ON</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal js-modal">
+            <form onsubmit="getValueAuto(event)">
+                <div class="bodercontainer js-modal-contaiter">
+                    <i class="ti-close close js-modal-close"></i>
+                    <h2 class="texth2">SETTING</h2>
+
+                    <div class="row" style="width: 100%">
+                        <!--  -->
+                        <!--  -->
+                        <!-- Nha Kinh 1 -->
+                        <div class="col-half">
+                            <div class="tieude">Nhà Kính 1</div>
+                            <div class="input_btn">
+                                <div class="text17">Độ Ẩm Đất</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowHum1" style="width: 70px;padding: 5px;" required>
+                                    <div>%</div>
+                                    <div style="font-size: 15px; margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highHum1" style="width: 70px;padding: 5px;" required>
+                                    <div>%</div>
+                                </div>
+                            </div>
+                            <div class="input_btn">
+                                <div class="text17">Nhiệt Độ</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowTem1" style="width: 70px;padding: 5px;" required>
+                                    <div>°C</div>
+                                    <div style="font-size: 15px;margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highTem1" style="width: 70px;padding: 5px;" required>
+                                    <div>°C</div>
+                                </div>
+                            </div>
+                            <div class="input_btn">
+                                <div class="text17">Ánh Sáng</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowLight1" style="width: 70px;padding: 5px;" required>
+                                    <div>lux</div>
+                                    <div style="font-size: 15px;margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highLight1" style="width: 70px;padding: 5px;" required>
+                                    <div>lux</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--  -->
+                        <!--  -->
+                        <!-- Nha Kinh 2 -->
+                        <div class="col-half">
+                            <div class="tieude">Nhà Kính 2</div>
+                            <div class="input_btn">
+                                <div class="text17">Độ Ẩm Đất</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowHum2" style="width: 70px;padding: 5px;" required>
+                                    <div>%</div>
+                                    <div style="font-size: 15px;margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highHum2" style="width: 70px;padding: 5px;" required>
+                                    <div>%</div>
+                                </div>
+                            </div>
+                            <div class="input_btn">
+                                <div class="text17">Nhiệt Độ</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowTem2" style="width: 70px;padding: 5px;" required>
+                                    <div>°C</div>
+                                    <div style="font-size: 15px;margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highTem2" style="width: 70px;padding: 5px;" required>
+                                    <div>°C</div>
+                                </div>
+                            </div>
+                            <div class="input_btn">
+                                <div class="text17">Ánh Sáng</div>
+                                <div class="row" style="align-items: center;">
+                                    <div style="font-size: 15px;">Ngưỡng Thấp</div>
+                                    <input type="number" id="lowLight2" style="width: 70px;padding: 5px;" required>
+                                    <div>lux</div>
+                                    <div style="font-size: 15px;margin-left: 10px;">Ngưỡng Cao</div>
+                                    <input type="number" id="highLight2" style="width: 70px;padding: 5px;" required>
+                                    <div>lux</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btnsub">
+                        <input type="submit" value="Lưu Thay Đổi"
+                            style="font-size: 20px;border-radius: 20px;cursor: pointer; padding: 10px;margin-right: 20px;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modalWarning">
+        <div class="warning-content">
+            <span class="warning-close">&times;</span>
+            <h1>Cảnh báo</h1>
+            <p>Giá trị ngưỡng thấp và ngưỡng cao đang trùng nhau</p>
+            <p>Hệ thống có vấn đề</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        socket.on('C-ReadDigital', (data) => {
+            //console.log(data);
+        })
+        socket.on('S-ReadADC', (value) => {
+            //console.log(value);
+            let jsonData = JSON.parse(value)
+            let decNumber = (jsonData.adc1 + jsonData.adc2 + jsonData.adc3 + jsonData.adc4) / 4
+            let datavalue = [jsonData.adc1, jsonData.adc2, jsonData.adc3, jsonData.adc4]
+            value1 = (decNumber - 1416) * 100 / (702 - 1416)
+
+            let decNumber2 = (jsonData.adc2)
+            value2 = (decNumber2 - 1416) * 100 / (712 - 1416)
+
+            let decNumber3 = (jsonData.adc3)
+            value3 = (decNumber3 - 1340) * 100 / (695 - 1340)
+
+            let decNumber1 = (jsonData.adc1)
+            value0 = (decNumber1 - 1416) * 100 / (702 - 1416)
+
+            let decNumber4 = (jsonData.adc4)
+            value4 = (decNumber4 - 1400) * 100 / (702 - 1400)
+
+            const divElement = document.querySelector('.do_am_dat1');
+            //const divADC = document.querySelector('.adc2');
+            //const divadc3 = document.querySelector('.ADC3');
+            //const divadc1 = document.querySelector('.ADC1');
+            //const divadc4 = document.querySelector('.ADC4');
+            if (divElement) {
+                divElement.textContent = value1.toFixed(0) + "%";
+                //divADC.textContent = value2.toFixed(0) + "%";
+                //divadc3.textContent = value3.toFixed(0) + "%";
+                //divadc1.textContent = value0.toFixed(0) + "%";
+                //divadc4.textContent = value4.toFixed(0) + "%";
+            }
+        })
+        socket.on('RS485_NPKvalue', (data) => {
+            let jsonData = JSON.parse(data)
+            let N_value = jsonData.N;
+            let P_value = jsonData.P;
+            let K_value = jsonData.K;
+
+            const N = document.querySelector('.N2');
+            const P = document.querySelector('.P2');
+            const K = document.querySelector('.K2');
+            if (N || P || K) {
+                N.textContent = N_value + "mg/kg";
+                P.textContent = P_value + "mg/kg";
+                K.textContent = K_value + "mg/kg";
+            }
+        })
+        socket.on('RS485_humvalue', (data) => {
+            let jsonData = JSON.parse(data)
+            let hum_value = jsonData.Hum;
+            const hum2 = document.querySelector('.hum2');
+            if (hum2) {
+                hum2.textContent = hum_value + "%";
+            }
+        })
+        socket.on('RS485_phvalue', (data) => {
+            let jsonData = JSON.parse(data)
+            let pH_value = jsonData.pH;
+            const pH2 = document.querySelector('.pH2');
+            if (pH2) {
+                pH2.textContent = pH_value + "pH";
+            }
+        })
+        var temI2C1 = 0;
+        var humI2C1 = 0;
+        var lightI2C1 = 0;
+        var temI2C2 = 0;
+        var humI2C2 = 0;
+        var lightI2C2 = 0;
+        socket.on('S-RequestI2C', (value) => {
+            let jsonData = JSON.parse(value);
+            //console.log(jsonData);
+            switch (jsonData.i2ca) {
+                case 35:
+                    //lightI2C = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) / 1.2)
+                    lightI2C = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) / 1.2)
+                    switch (jsonData.houseID) {
+                        case 1:
+                            lightI2C1 = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) / 1.2);
+                            console.log(jsonData);
+                            break
+                        case 2:
+                            lightI2C2 = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) / 1.2);
+                            break
+                    }
+                    break
+                case 68:
+                    //temI2C = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) * 175 / 65535) - 45
+                    //humI2C = (parseInt(jsonData.i2cd4.toString(16) + jsonData.i2cd5.toString(16), 16) * 100 / 65535)
+                    temI2C = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) * 175 / 65535) - 45
+                    humI2C = (((jsonData.i2cd4 << 8) | jsonData.i2cd5) * 100 / 65535)
+                    switch (jsonData.houseID) {
+                        case 1:
+                            //temI2C1 = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) * 175 / 65535) - 45;
+                            //humI2C1 = (parseInt(jsonData.i2cd4.toString(16) + jsonData.i2cd5.toString(16), 16) * 100 / 65535);
+
+                            temI2C1 = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) * 175 / 65535) - 45
+                            humI2C1 = (((jsonData.i2cd4 << 8) | jsonData.i2cd5) * 100 / 65535)
+                            break
+                        case 2:
+                            //temI2C2 = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) * 175 / 65535) - 45;
+                            //humI2C2 = (parseInt(jsonData.i2cd4.toString(16) + jsonData.i2cd5.toString(16), 16) * 100 / 65535);
+                            temI2C2 = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) * 175 / 65535) - 45
+                            humI2C2 = (((jsonData.i2cd4 << 8) | jsonData.i2cd5) * 100 / 65535)
+                            break
+                    }
+                    break
+            }
+
+            var temI2C1_display = document.querySelector('.temI2C1');
+            var temI2C2_display = document.querySelector('.temI2C2');
+
+            var humI2C1_display = document.querySelector('.humI2C1');
+            var humI2C2_display = document.querySelector('.humI2C2');
+
+            var lightI2C1_display = document.querySelector('.lightI2C1');
+            var lightI2C2_display = document.querySelector('.lightI2C2');
+
+
+            if (temI2C1_display || temI2C2_display || humI2C1_display || humI2C2_display) {
+                temI2C1_display.textContent = temI2C1.toFixed(0) + " °C";
+                temI2C2_display.textContent = temI2C2.toFixed(0) + " °C";
+
+                humI2C1_display.textContent = humI2C1.toFixed(2) + " %";
+                humI2C2_display.textContent = humI2C2.toFixed(2) + " %";
+
+                lightI2C1_display.textContent = lightI2C1.toFixed(1) + " lux";
+                lightI2C2_display.textContent = lightI2C2.toFixed(1) + " lux";
+
+            }
+        })
+        socket.on('S-ReadI2C', (data) => {
+            let jsonData = JSON.parse(data);
+            //console.log(jsonData);
+            switch (jsonData.i2ca) {
+                case 35:
+                    //lightI2C = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) / 1.2)
+                    lightI2C = (((jsonData.i2cd1 << 8) | jsonData.i2cd2) / 1.2)
+                    switch (jsonData.houseID) {
+                        case 1:
+                            lightI2C1 = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) / 1.2);
+                            break
+                        case 2:
+                            lightI2C2 = (parseInt(jsonData.i2cd1.toString(16) + jsonData.i2cd2.toString(16), 16) / 1.2);
+                            break
+                    }
+                    break
+            }
+
+            var lightI2C1_display = document.querySelector('.lightI2C1');
+            var lightI2C2_display = document.querySelector('.lightI2C2');
+
+            lightI2C1_display.textContent = lightI2C1.toFixed(1) + " lux";
+            lightI2C2_display.textContent = lightI2C2.toFixed(1) + " lux";
+        })
+
+    </script>
+    <!-- Đổi biểu đồ: -->
+    <script>
+        // 
+        // 
+        //  MANUAL
+        var bt_on1 = document.querySelector('.btn_on1');
+        var bt_on2 = document.querySelector('.btn_on2');
+        var bt_on3 = document.querySelector('.btn_on3');
+        var bt_on4 = document.querySelector('.btn_on4');
+        var bt_on5 = document.querySelector('.btn_on5');
+        var bt_on6 = document.querySelector('.btn_on6');
+        var bt_on21 = document.querySelector('.btn_on21');
+        var bt_on22 = document.querySelector('.btn_on22');
+        var bt_on23 = document.querySelector('.btn_on23');
+        var bt_on24 = document.querySelector('.btn_on24');
+        var bt_on25 = document.querySelector('.btn_on25');
+        var bt_on26 = document.querySelector('.btn_on26');
+        // 
+        // 
+        // AUTO
+        var bt_onauto1 = document.querySelector('.btn_onauto1');
+        var bt_onauto2 = document.querySelector('.btn_onauto2');
+        var bt_onauto3 = document.querySelector('.btn_onauto3');
+        var bt_onauto4 = document.querySelector('.btn_onauto4');
+        var bt_onauto5 = document.querySelector('.btn_onauto5');
+        var bt_onauto6 = document.querySelector('.btn_onauto6');
+        var bt_onauto21 = document.querySelector('.btn_onauto21');
+        var bt_onauto22 = document.querySelector('.btn_onauto22');
+        var bt_onauto23 = document.querySelector('.btn_onauto23');
+        var bt_onauto24 = document.querySelector('.btn_onauto24');
+        var bt_onauto25 = document.querySelector('.btn_onauto25');
+        var bt_onauto26 = document.querySelector('.btn_onauto26');
+        // 
+        // 
+        // CLICK BUTTON
+        bt_on1.addEventListener('click', addlight1);
+        function addlight1() {
+            //bt_on1.classList.toggle('light');
+            if (bt_on1.classList.value != 'btn btn_on1 light') {
+                //console.log(1)
+                socket.emit('den1on', '{"Client":{"houseID":1,"request":"WriteDigital","DO0":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den1off', '{"Client":{"houseID":1,"request":"WriteDigital","DO0":"1"}}');
+            }
+        }
+        bt_on2.addEventListener('click', addlight2);
+        function addlight2() {
+            //bt_on2.classList.toggle('light');
+            if (bt_on2.classList.value != 'btn btn_on2 light') {
+                //console.log(1)
+                socket.emit('den2on', '{"Client":{"houseID":1,"request":"WriteDigital","DO1":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den2off', '{"Client":{"houseID":1,"request":"WriteDigital","DO1":"1"}}');
+            }
+        }
+        bt_on3.addEventListener('click', addlight3);
+        function addlight3() {
+            //bt_on3.classList.toggle('light');
+            if (bt_on3.classList.value != 'btn btn_on3 light') {
+                //console.log(1)
+                socket.emit('den3on', '{"Client":{"houseID":1,"request":"WriteDigital","DO2":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den3off', '{"Client":{"houseID":1,"request":"WriteDigital","DO2":"1"}}');
+            }
+        }
+        bt_on4.addEventListener('click', addlight4);
+        function addlight4() {
+            //bt_on4.classList.toggle('light');
+            if (bt_on4.classList.value != 'btn btn_on4 light') {
+                //console.log(1)
+                socket.emit('den4on', '{"Client":{"houseID":1,"request":"WriteDigital","DO3":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den4off', '{"Client":{"houseID":1,"request":"WriteDigital","DO3":"1"}}');
+            }
+        }
+
+        bt_on5.addEventListener('click', addlight5);
+        function addlight5() {
+            //bt_on5.classList.toggle('light');
+            if (bt_on5.classList.value != 'btn btn_on5 light') {
+                //console.log(1)
+                socket.emit('den5on', '{"Client":{"houseID":1,"request":"WriteDigital","DO4":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den5off', '{"Client":{"houseID":1,"request":"WriteDigital","DO4":"1"}}');
+            }
+        }
+
+        bt_on6.addEventListener('click', addlight6);
+        function addlight6() {
+            //bt_on6.classList.toggle('light');
+            if (bt_on6.classList.value != 'btn btn_on6 light') {
+                //console.log(1)
+                socket.emit('den6on', '{"Client":{"houseID":1,"request":"WriteDigital","DO5":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den6off', '{"Client":{"houseID":1,"request":"WriteDigital","DO5":"1"}}');
+            }
+        }
+
+        bt_on21.addEventListener('click', addlight21);
+        function addlight21() {
+            //bt_on21.classList.toggle('light');
+            if (bt_on21.classList.value != 'btn1 btn_on21 light') {
+                //console.log(1)
+                socket.emit('den7on', '{"Client":{"houseID":2,"request":"WriteDigital","DO0":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den7off', '{"Client":{"houseID":2,"request":"WriteDigital","DO0":"1"}}');
+            }
+        }
+
+        bt_on22.addEventListener('click', addlight22);
+        function addlight22() {
+            //bt_on22.classList.toggle('light');
+            if (bt_on22.classList.value != 'btn1 btn_on22 light') {
+                //console.log(1)
+                socket.emit('den8on', '{"Client":{"houseID":2,"request":"WriteDigital","DO1":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den8off', '{"Client":{"houseID":2,"request":"WriteDigital","DO1":"1"}}');
+            }
+        }
+
+        bt_on23.addEventListener('click', addlight23);
+        function addlight23() {
+            //bt_on23.classList.toggle('light');
+            if (bt_on23.classList.value != 'btn1 btn_on23 light') {
+                //console.log(1)
+                socket.emit('den9on', '{"Client":{"houseID":2,"request":"WriteDigital","DO2":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den9off', '{"Client":{"houseID":2,"request":"WriteDigital","DO2":"1"}}');
+            }
+        }
+
+        bt_on24.addEventListener('click', addlight24);
+        function addlight24() {
+            //bt_on24.classList.toggle('light');
+            if (bt_on24.classList.value != 'btn1 btn_on24 light') {
+                //console.log(1)
+                socket.emit('den10on', '{"Client":{"houseID":2,"request":"WriteDigital","DO3":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den10off', '{"Client":{"houseID":2,"request":"WriteDigital","DO3":"1"}}');
+            }
+        }
+
+        bt_on25.addEventListener('click', addlight25);
+        function addlight25() {
+            //bt_on25.classList.toggle('light');
+            if (bt_on25.classList.value != 'btn1 btn_on25 light') {
+                //console.log(1)
+                socket.emit('den11on', '{"Client":{"houseID":2,"request":"WriteDigital","DO4":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den11off', '{"Client":{"houseID":2,"request":"WriteDigital","DO4":"1"}}');
+            }
+        }
+
+        bt_on26.addEventListener('click', addlight26);
+        function addlight26() {
+            //bt_on26.classList.toggle('light');
+            if (bt_on26.classList.value != 'btn1 btn_on26 light') {
+                //console.log(1)
+                socket.emit('den12on', '{"Client":{"houseID":2,"request":"WriteDigital","DO5":"0"}}');
+            }
+            else {
+                //console.log(0)
+                socket.emit('den12off', '{"Client":{"houseID":2,"request":"WriteDigital","DO5":"1"}}');
+            }
+        }
+        fetch('/api/getButton')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach((item) => {
+                    let bit8 = item.bit8;
+                    let bit7 = item.bit7;
+                    let bit6 = item.bit6;
+                    let bit5 = item.bit5;
+                    let bit4 = item.bit4;
+                    let bit3 = item.bit3;
+                    switch (bit8) {
+                        case 1:
+                            bt_on1.classList.remove('light');
+                            bt_onauto1.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on1.classList.add('light');
+                            bt_onauto1.classList.add('light');
+                            break;
+                    }
+                    switch (bit7) {
+                        case 1:
+                            bt_on2.classList.remove('light');
+                            bt_onauto2.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on2.classList.add('light');
+                            bt_onauto2.classList.add('light');
+                            break;
+                    }
+                    switch (bit6) {
+                        case 1:
+                            bt_on3.classList.remove('light');
+                            bt_onauto3.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on3.classList.add('light');
+                            bt_onauto3.classList.add('light');
+                            break;
+                    }
+                    switch (bit5) {
+                        case 1:
+                            bt_on4.classList.remove('light');
+                            bt_onauto4.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on4.classList.add('light');
+                            bt_onauto4.classList.add('light');
+                            break;
+                    }
+                    switch (bit4) {
+                        case 1:
+                            bt_on5.classList.remove('light');
+                            bt_onauto5.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on5.classList.add('light');
+                            bt_onauto5.classList.add('light');
+                            break;
+                    }
+                    switch (bit3) {
+                        case 1:
+                            bt_on6.classList.remove('light');
+                            bt_onauto6.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on6.classList.add('light');
+                            bt_onauto6.classList.add('light');
+                            break;
+                    }
+                })
+            })
+        fetch('/api/getButton2')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach((item) => {
+                    let bit8 = item.bit8;
+                    let bit7 = item.bit7;
+                    let bit6 = item.bit6;
+                    let bit5 = item.bit5;
+                    let bit4 = item.bit4;
+                    let bit3 = item.bit3;
+                    switch (bit8) {
+                        case 1:
+                            bt_on21.classList.remove('light');
+                            bt_onauto21.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on21.classList.add('light');
+                            bt_onauto21.classList.add('light');
+                            break;
+                    }
+                    switch (bit7) {
+                        case 1:
+
+                            bt_on22.classList.remove('light');
+                            bt_onauto22.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on22.classList.add('light');
+                            bt_onauto22.classList.add('light');
+                            break;
+                    }
+                    switch (bit6) {
+                        case 1:
+                            bt_on23.classList.remove('light');
+                            bt_onauto23.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on23.classList.add('light');
+                            bt_onauto23.classList.add('light');
+                            break;
+                    }
+                    switch (bit5) {
+                        case 1:
+                            bt_on24.classList.remove('light');
+                            bt_onauto24.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on24.classList.add('light');
+                            bt_onauto24.classList.add('light');
+                            break;
+                    }
+                    switch (bit4) {
+                        case 1:
+                            bt_on25.classList.remove('light');
+                            bt_onauto25.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on25.classList.add('light');
+                            bt_onauto25.classList.add('light');
+                            break;
+                    }
+                    switch (bit3) {
+                        case 1:
+                            bt_on26.classList.remove('light');
+                            bt_onauto26.classList.remove('light');
+                            break;
+                        case 0:
+                            bt_on26.classList.add('light');
+                            bt_onauto26.classList.add('light');
+                            break;
+                    }
+                })
+            })
+
+        //setInterval(fetchButton, 100)
+        socket.on('display1', (data) => {
+            let jsonData = JSON.parse(data)
+            //console.log(jsonData)
+            let bit8 = jsonData.bit8
+            let bit7 = jsonData.bit7
+            let bit6 = jsonData.bit6
+            let bit5 = jsonData.bit5
+            let bit4 = jsonData.bit4
+            let bit3 = jsonData.bit3
+            switch (bit8) {
+                case 1:
+                    bt_on1.classList.remove('light');
+                    bt_onauto1.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on1.classList.add('light');
+                    bt_onauto1.classList.add('light');
+                    break;
+            }
+            switch (bit7) {
+                case 1:
+                    bt_on2.classList.remove('light');
+                    bt_onauto2.classList.remove('light');
+                    break;
+                case 0:
+
+                    bt_on2.classList.add('light');
+                    bt_onauto2.classList.add('light');
+                    break;
+            }
+            switch (bit6) {
+                case 1:
+                    bt_on3.classList.remove('light');
+                    bt_onauto3.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on3.classList.add('light');
+                    bt_onauto3.classList.add('light');
+                    break;
+            }
+            switch (bit5) {
+                case 1:
+                    bt_on4.classList.remove('light');
+                    bt_onauto4.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on4.classList.add('light');
+                    bt_onauto4.classList.add('light');
+                    break;
+            }
+            switch (bit4) {
+                case 1:
+                    bt_on5.classList.remove('light');
+                    bt_onauto5.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on5.classList.add('light');
+                    bt_onauto5.classList.add('light');
+                    break;
+            }
+            switch (bit3) {
+                case 1:
+                    bt_on6.classList.remove('light');
+                    bt_onauto6.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on6.classList.add('light');
+                    bt_onauto6.classList.add('light');
+                    break;
+            }
+        })
+        socket.on('display2', (data) => {
+            let jsonData = JSON.parse(data)
+            //console.log(jsonData)
+            //let value = parseInt(jsonData.data, 16).toString(2)
+            //console.log(value)
+            let bit8 = jsonData.bit8
+            let bit7 = jsonData.bit7
+            let bit6 = jsonData.bit6
+            let bit5 = jsonData.bit5
+            let bit4 = jsonData.bit4
+            let bit3 = jsonData.bit3
+            //console.log(bit8 + " " + bit7 + " " + bit6 + " " + bit5 + " " + bit4 + " " + bit3)
+            switch (bit8) {
+                case 1:
+                    bt_on21.classList.remove('light');
+                    bt_onauto21.classList.remove('light');
+                    break;
+                case 0:
+
+                    bt_on21.classList.add('light');
+                    bt_onauto21.classList.add('light');
+                    break;
+            }
+            switch (bit7) {
+                case 1:
+
+                    bt_on22.classList.remove('light');
+                    bt_onauto22.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on22.classList.add('light');
+                    bt_onauto22.classList.add('light');
+                    break;
+            }
+            switch (bit6) {
+                case 1:
+                    bt_on23.classList.remove('light');
+                    bt_onauto23.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on23.classList.add('light');
+                    bt_onauto23.classList.add('light');
+                    break;
+            }
+            switch (bit5) {
+                case 1:
+                    bt_on24.classList.remove('light');
+                    bt_onauto24.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on24.classList.add('light');
+                    bt_onauto24.classList.add('light');
+                    break;
+            }
+            switch (bit4) {
+                case 1:
+                    bt_on25.classList.remove('light');
+                    bt_onauto25.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on25.classList.add('light');
+                    bt_onauto25.classList.add('light');
+                    break;
+            }
+            switch (bit3) {
+                case 1:
+                    bt_on26.classList.remove('light');
+                    bt_onauto26.classList.remove('light');
+                    break;
+                case 0:
+                    bt_on26.classList.add('light');
+                    bt_onauto26.classList.add('light');
+                    break;
+            }
+        })
+        socket.on('displaymode1', (data) => {
+            //console.log(data);
+            switch (data) {
+                case "auto":
+                    dis_auto.classList.add('light');
+                    dis_manual.classList.remove('light');
+                    box_on.classList.add('boxactive');
+                    btn_on.classList.add('btnactive');
+                    document.querySelector('.element1').classList.remove('display-none');
+                    document.querySelector('.element2').classList.remove('display-none');
+                    document.querySelector('.element3').classList.remove('display-none');
+                    document.querySelector('.element4').classList.remove('display-none');
+                    document.querySelector('.element5').classList.remove('display-none');
+                    document.querySelector('.element6').classList.remove('display-none');
+                    document.querySelector('.btn_on1').classList.add('display-none');
+                    document.querySelector('.btn_on2').classList.add('display-none');
+                    document.querySelector('.btn_on3').classList.add('display-none');
+                    document.querySelector('.btn_on4').classList.add('display-none');
+                    document.querySelector('.btn_on5').classList.add('display-none');
+                    document.querySelector('.btn_on6').classList.add('display-none');
+                    break
+                case "manual":
+                    box_on.classList.remove('boxactive');
+                    btn_on.classList.remove('btnactive');
+                    dis_manual.classList.add('light');
+                    dis_auto.classList.remove('light');
+                    document.querySelector('.btn_on1').classList.remove('display-none');
+                    document.querySelector('.btn_on2').classList.remove('display-none');
+                    document.querySelector('.btn_on3').classList.remove('display-none');
+                    document.querySelector('.btn_on4').classList.remove('display-none');
+                    document.querySelector('.btn_on5').classList.remove('display-none');
+                    document.querySelector('.btn_on6').classList.remove('display-none');
+                    document.querySelector('.element1').classList.add('display-none');
+                    document.querySelector('.element2').classList.add('display-none');
+                    document.querySelector('.element3').classList.add('display-none');
+                    document.querySelector('.element4').classList.add('display-none');
+                    document.querySelector('.element5').classList.add('display-none');
+                    document.querySelector('.element6').classList.add('display-none');
+                    break
+            }
+        })
+        socket.on('displaymode2', (data) => {
+            //console.log(data);
+            switch (data) {
+                case "auto":
+                    dis_auto2.classList.add('light');
+                    dis_manual2.classList.remove('light');
+                    box_on1.classList.add('boxactive');
+                    btn_on1.classList.add('btnactive');
+                    document.querySelector('.element21').classList.remove('display-none');
+                    document.querySelector('.element22').classList.remove('display-none');
+                    document.querySelector('.element23').classList.remove('display-none');
+                    document.querySelector('.element24').classList.remove('display-none');
+                    document.querySelector('.element25').classList.remove('display-none');
+                    document.querySelector('.element26').classList.remove('display-none');
+                    document.querySelector('.btn_on21').classList.add('display-none');
+                    document.querySelector('.btn_on22').classList.add('display-none');
+                    document.querySelector('.btn_on23').classList.add('display-none');
+                    document.querySelector('.btn_on24').classList.add('display-none');
+                    document.querySelector('.btn_on25').classList.add('display-none');
+                    document.querySelector('.btn_on26').classList.add('display-none');
+                    break
+                case "manual":
+                    box_on1.classList.remove('boxactive');
+                    btn_on1.classList.remove('btnactive');
+                    dis_manual2.classList.add('light');
+                    dis_auto2.classList.remove('light');
+                    document.querySelector('.btn_on21').classList.remove('display-none');
+                    document.querySelector('.btn_on22').classList.remove('display-none');
+                    document.querySelector('.btn_on23').classList.remove('display-none');
+                    document.querySelector('.btn_on24').classList.remove('display-none');
+                    document.querySelector('.btn_on25').classList.remove('display-none');
+                    document.querySelector('.btn_on26').classList.remove('display-none');
+                    document.querySelector('.element21').classList.add('display-none');
+                    document.querySelector('.element22').classList.add('display-none');
+                    document.querySelector('.element23').classList.add('display-none');
+                    document.querySelector('.element24').classList.add('display-none');
+                    document.querySelector('.element25').classList.add('display-none');
+                    document.querySelector('.element26').classList.add('display-none');
+                    break
+            }
+        })
+    </script>
+    <script>
+        const buyBtn = document.querySelector('.js-buy-ticket');
+        const modal = document.querySelector('.js-modal');
+        const closeButton = document.querySelector('.js-modal-close');
+        const submitButton = document.querySelector('.btnsub');
+
+        const modalWarning = document.querySelector('.modalWarning');
+        const warningContent = document.querySelector('.warning-content');
+        const warningClose = document.querySelector('.warning-close');
+        function showBuyTickets() {
+            modal.classList.add('open');
+        }
+
+        function closeModal() {
+            modal.classList.remove('open');
+        }
+
+        function getValueAuto(even) {
+            event.preventDefault();
+            var lowHum1 = document.getElementById('lowHum1').value
+            var lowHum2 = document.getElementById('lowHum2').value
+
+            var lowLight1 = document.getElementById('lowLight1').value
+            var lowLight2 = document.getElementById('lowLight2').value
+
+            var lowTem1 = document.getElementById('lowTem1').value
+            var lowTem2 = document.getElementById('lowTem2').value
+
+            var highHum1 = document.getElementById('highHum1').value
+            var highHum2 = document.getElementById('highHum2').value
+
+            var highLight1 = document.getElementById('highLight1').value
+            var highLight2 = document.getElementById('highLight2').value
+
+            var highTem1 = document.getElementById('highTem1').value
+            var hightTem2 = document.getElementById('highTem2').value
+            socket.emit('getAutoValue', '{"lowHum1":' + lowHum1 + ',"highHum1":' + highHum1 + ',"lowHum2":' + lowHum2 + ',"highHum2":' + highHum2 + ',"lowLight1":' + lowLight1 + ',"highLight1":' + highLight1 + ',"lowLight2":' + lowLight2 + ',"highLight2":' + highLight2 + ',"lowTem1":' + lowTem1 + ',"highTem1":' + highTem1 + ',"lowTem2":' + lowTem2 + ',"highTem2":' + hightTem2 + '}')
+            closeModal();
+            if (lowHum1 == highHum1 || lowHum2 == highHum2 || lowLight1 == highLight1 || lowLight2 == highLight2 || lowTem1 == highTem1 || lowTem2 == hightTem2) {
+                modalWarning.style.display = "flex";
+                document.body.style.overflow = "hidden"
+            }
+        }
+
+        warningClose.addEventListener("click", () => {
+            modalWarning.style.display = "none";
+            document.body.style.overflow = "inital"
+        })
+
+        buyBtn.addEventListener('click', showBuyTickets);
+        closeButton.addEventListener('click', closeModal);
+        submitButton.addEventListener('click', getValueAuto);
+
+
+
+        const status1 = document.querySelector('.status1')
+        const status2 = document.querySelector('.status2')
+        socket.on('S-status', (data) => {
+            let jsonData = JSON.parse(data);
+            switch (jsonData.houseID) {
+                case 1:
+                    switch (jsonData.msg) {
+                        case 'Lora_Offline':
+                            status1.classList.remove('display-none')
+                            break
+                        case 'Lora_Online':
+                            status1.classList.add('display-none')
+                            break
+                    }
+                    break
+                case 2:
+                    switch (jsonData.msg) {
+                        case 'Lora_Offline':
+                            status2.classList.remove('display-none')
+                            break
+                        case 'Lora_Online':
+                            status2.classList.add('display-none')
+                            break
+                    }
+                    break
+            }
+        })
+        fetch('/api/getStatus1')
+            .then(
+                response => response.json())
+            .then(data => {
+                data.forEach((item) => {
+                    if (item.status == 0) {
+                        status1.classList.remove('display-none')
+                    }
+                    else {
+                        status1.classList.add('display-none')
+                    }
+                })
+            }
+            )
+        fetch('/api/getStatus2')
+            .then(
+                response => response.json())
+            .then(data => {
+                data.forEach((item) => {
+                    if (item.status == 0) {
+                        status2.classList.remove('display-none')
+                    }
+                    else {
+                        status2.classList.add('display-none')
+                    }
+                })
+            }
+            )
+        socket.on('gatewaysv', (data) => {
+            alert('GATEWAY ĐÃ KẾT NỐI');
+        })
+        socket.on('gatewayoff', (data) => {
+            alert('GATEWAY MẤT KẾT NỐI');
+        })
+        socket.on('devMode', (data) => {
+            console.log(JSON.parse(data));
+        })
+        socket.on('defaultValue', (data) => {
+            let jsonData = JSON.parse(data)
+            console.log(jsonData)
+            var lowHum1 = document.getElementById('lowHum1')
+            var lowHum2 = document.getElementById('lowHum2')
+
+            var lowLight1 = document.getElementById('lowLight1')
+            var lowLight2 = document.getElementById('lowLight2')
+
+            var lowTem1 = document.getElementById('lowTem1')
+            var lowTem2 = document.getElementById('lowTem2')
+
+            var highHum1 = document.getElementById('highHum1')
+            var highHum2 = document.getElementById('highHum2')
+
+            var highLight1 = document.getElementById('highLight1')
+            var highLight2 = document.getElementById('highLight2')
+
+            var highTem1 = document.getElementById('highTem1')
+            var hightTem2 = document.getElementById('highTem2')
+
+            lowHum1.value = jsonData.lowHum1
+            lowHum2.value = jsonData.lowHum2
+            highHum1.value = jsonData.highHum1
+            highHum2.value = jsonData.highHum2
+            lowLight1.value = jsonData.lowLight1
+            lowLight2.value = jsonData.lowLight2
+            highLight1.value = jsonData.highLight1
+            highLight2.value = jsonData.highLight2
+            lowTem1.value = jsonData.lowTem1
+            lowTem2.value = jsonData.lowTem2
+            highTem1.value = jsonData.highTem1
+            hightTem2.value = jsonData.highTem2
+        })
+    </script>
+</body>
+
+</html>

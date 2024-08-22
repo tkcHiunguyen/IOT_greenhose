@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/dashboard/header.css">
+    <link rel="stylesheet" href="/css/config.css">
+    <link rel="stylesheet" href="/css/themify-icons/themify-icons.css">
+    <link rel="icon" type="image/x-icon" href="/img/symbol.JPG">
+    <title>Cấu Hình</title>
+    <style>
+        form {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header -->
+    <div id="header">
+        <div class="col-quarter icon-web">
+            <img src="/img/logo-canh-cay.PNG" alt="logo-IUH" class="logo-canh-cay">
+            <h5>DHDKTD K15</h5>
+        </div>
+        <div class="col-half text-cennter" style="min-width: 535px;">
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/config">Configuration</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="col-quarter" style="min-width: 230px;">
+            <div class="input-user user-btn">
+                Log In
+            </div>
+            <div class="user-btn">
+                <i class="user-icon ti-user"></i>
+            </div>
+            <div><span id="curClock"></span></div>
+        </div>
+    </div>
+
+    <!-- config -->
+    <div style="margin-top: 70px; text-align: center; z-index: 1; background-color: white;">
+        <h1>CẤU HÌNH THỜI GIAN CẢM BIẾN</h1>
+        <div class="row">
+            <div class="col-half border box">
+                <button class="scani2c1">SCAN I2C HOUSE 1</button><br>
+                <div class="pad10">
+                    <form onsubmit="set_time_ADC_1(event)">
+                        <label for="adcInput">Nhập giá trị cài đặt thời gian ADC (giây):</label>
+                        <div class="right0">
+                            <input type="number" step="0.1" id="adcInput" name="adcInput" required>
+                            <button style='margin-left: 5px; margin-right: 10px;' type="submit">Gửi</button>
+                        </div>
+                    </form>
+                    <div id="formContainer" style="position: relative;"></div>
+                </div>
+            </div>
+            <div class="col-half border box">
+                <button class="scani2c2">SCAN I2C HOUSE 2</button><br>
+                <div id="formContainer2"></div>
+                <form onsubmit="set_time_RS485_1_NPK(event)" class="pad10 mar5">
+                    <label for="npkInput1">Nhập giá trị cài đặt thời gian NPK (giây):</label>
+                    <div class="right0">
+                        <input type="number" step="0.1" id="npkInput1" name="npkInput1" required>
+                        <button type="submit" style='margin-left: 5px; margin-right: 10px;'>Gửi</button>
+                    </div>
+                </form>
+                <form onsubmit="set_time_RS485_1_pH(event)" class="pad10 mar5">
+                    <label for="phInput1">Nhập giá trị cài đặt thời gian pH (giây):</label>
+                    <div class="right0">
+                        <input type="number" step="0.1" id="phInput1" name="phInput1" required>
+                        <button type="submit" style='margin-left: 5px; margin-right: 10px;'>Gửi</button>
+                    </div>
+                </form>
+                <form onsubmit="set_time_RS485_1_Moisture(event)" class="pad10 mar5">
+                    <label for="moistureInput">Nhập giá trị cài đặt thời gian Độ ẩm (giây):</label>
+                    <div class="right0">
+                        <input type="number" step="0.1" id="moistureInput" name="moistureInput" required>
+                        <button type="submit" style='margin-left: 5px; margin-right: 10px;'>Gửi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="devmode" style="display: block;">
+            <form onsubmit=" set_debug(event)">
+                <label for="topic">nhập chủ đề :</label>
+                <input type="text" name="topic" id="topic" value="debug1">
+                <label for="main">nhập nội dung</label>
+                <input type="text" name="main" id="main" style="width:1000px">
+                <button type="submit">gửi</button>
+            </form>
+        </div>
+
+
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        var getValue;
+        var getValue1;
+        socket.on("GET_I2C_DEVICE", (data1) => {
+            var getdata = []
+            let data = JSON.parse(data1)
+            switch (data.houseID) {
+                case 1:
+                    for (let i = 1; i <= data.lenght; i++) {
+                        const addressKey = `i2ca${i}`;
+                        const addressValue = parseInt(data[addressKey]);
+                        getdata.push(addressValue)
+                    }
+                    getValue = getdata
+                    getValue.map((item) => {
+                        const form = document.createElement("form");
+                        form.id = `form${item}`;
+                        const existingForm = document.getElementById(`form${item}`)
+                        form.addEventListener("submit", (event) => sendData2(event, item));
+                        form.setAttribute('style', 'margin-top:5px;margin-bottom:5px;')
+                        const label = document.createElement("label");
+                        label.setAttribute("for", `i2cInput1${item}`);
+                        label.textContent = `Nhập giá trị Read I2C cho địa chỉ ${item}:`;
+
+                        const div = document.createElement('div')
+                        div.setAttribute('class', 'right0')
+
+                        const input = document.createElement("input");
+                        input.setAttribute("type", "number");
+                        input.setAttribute("id", `i2cInput1${item}`);
+                        input.setAttribute("name", "i2cInput");
+                        input.setAttribute("required", "required");
+                        input.setAttribute("step", "0.1");
+
+
+                        const button = document.createElement("button");
+                        button.setAttribute("type", "submit");
+                        button.setAttribute("style", "margin-left: 10px;");
+                        button.textContent = "Gửi";
+
+                        div.appendChild(input);
+                        div.appendChild(button);
+                        form.appendChild(label);
+                        form.appendChild(div);
+
+                        // Thêm form vào HTML
+                        const container = document.getElementById("formContainer");
+                        container.appendChild(form);
+                        const existingFormContainer = document.getElementById(`form${item}`);
+                        if (existingFormContainer) {
+                            container.replaceChild(form, existingFormContainer);
+                        } else {
+                            container.appendChild(form);
+                        }
+
+                    })
+                    break
+                case 2:
+                    var getdata1 = []
+                    for (let i = 1; i <= data.lenght; i++) {
+                        const addressKey = `i2ca${i}`;
+                        const addressValue = parseInt(data[addressKey]);
+                        getdata1.push(addressValue)
+                    }
+                    getValue1 = getdata1
+                    getValue1.map((item, index) => {
+                        const form = document.createElement("form");
+                        form.id = `form${index}`;
+                        form.addEventListener("submit", (event) => sendData3(event, item));
+                        form.setAttribute('style', 'margin-top:5px;margin-bottom:5px;')
+                        const label = document.createElement("label");
+                        label.setAttribute("for", `i2cInput2${item}`);
+                        label.textContent = `Nhập giá trị Read I2C cho địa chỉ ${item}:`;
+
+                        const input = document.createElement("input");
+                        input.setAttribute("type", "number");
+                        input.setAttribute("id", `i2cInput2${item}`);
+                        input.setAttribute("name", "i2cInput");
+                        input.setAttribute("required", "required");
+                        input.setAttribute("step", "0.1");
+
+                        const div = document.createElement('div')
+                        div.setAttribute('class', 'right0')
+
+                        const button = document.createElement("button");
+                        button.setAttribute("type", "submit");
+                        button.setAttribute("style", "margin-left: 10px;margin-right:10px");
+                        button.textContent = "Gửi";
+
+                        div.appendChild(input);
+                        div.appendChild(button);
+                        form.appendChild(label);
+                        form.appendChild(div);
+
+                        // Thêm form vào HTML
+                        const container2 = document.getElementById("formContainer2");
+                        container2.appendChild(form);
+                        const existingFormContainer = document.getElementById(`form${index}`);
+                        if (existingFormContainer) {
+                            container2.replaceChild(form, existingFormContainer);
+                        } else {
+                            container2.appendChild(form);
+                        }
+                    })
+                    break
+            }
+
+
+        })
+        function set_time_ADC_1(event) {
+            event.preventDefault();
+            let adcInput = parseFloat(document.getElementById("adcInput").value) * 1000;
+
+            socket.emit("config", '{"Client":{"houseID":1,"request":"WriteCMD","cmdAuto":"ReadAdc","adc":"0,1,2,3","cmdID":20,"time":' + adcInput + '}}');
+            document.getElementById("adcInput").value = "";
+        }
+        function set_debug(event) {
+            event.preventDefault();
+            //var topicInput = document.getElementById('topic').value;
+            var mainInput = document.getElementById('main').value;
+            //console.log(topicInput);
+            console.log(mainInput);
+            socket.emit('debug1', mainInput.toString());
+        }
+        function set_time_ADC_2(event) {
+            event.preventDefault();
+            let adcInput = parseFloat(document.getElementById("adcInput2").value) * 1000;
+            socket.emit("config", '{"Client":{"houseID":2,"request":"WriteCMD","cmdAuto":"ReadAdc","adc":"1","cmdID":30,"time":' + adcInput + '}}');
+            document.getElementById("adcInput2").value = "";
+        }
+        function set_time_RS485_1_NPK(event) {
+            event.preventDefault();
+            let npk = parseFloat(document.getElementById("npkInput1").value) * 1000;
+            socket.emit("configRS485", '{"Client":{"houseID":2,"request":"WriteCMD","cmdAuto":"RS485","RS485a":1,"RS485 Funtion code":3,"register start address":"0,30","register lenght":"0,3","NoB":11,"cmdID":41,"time":' + npk + '}}');
+            document.getElementById("npkInput1").value = "";
+        }
+        function set_time_RS485_1_pH(event) {
+            event.preventDefault();
+            let ph = parseFloat(document.getElementById("phInput1").value) * 1000;
+            socket.emit("configRS485", '{"Client":{"houseID":2,"request":"WriteCMD","cmdAuto":"RS485","RS485a":1,"RS485 Funtion code":3,"register start address":"0,6","register lenght":"0,1","NoB":7,"cmdID":42,"time":' + ph + '}}');
+            document.getElementById("phInput1").value = "";
+        }
+        function set_time_RS485_1_Moisture(event) {
+            event.preventDefault();
+            let moisture = parseFloat(document.getElementById("moistureInput").value) * 1000;
+            socket.emit("configRS485", '{"Client":{"houseID":2,"request":"WriteCMD","cmdAuto":"RS485","RS485a":1,"RS485 Funtion code":3,"register start address":"0,18","register lenght":"0,1","NoB":7,"cmdID":43,"time":' + moisture + '}}');
+            document.getElementById("moistureInput").value = "";
+        }
+        function sendData2(event, addressValue) {
+            var i2cd;
+            var nob;
+            event.preventDefault();
+            let i2cInput = parseFloat(document.getElementById(`i2cInput1${addressValue}`).value) * 1000;
+            if (addressValue == 68) {
+                i2cd = "44,6";
+                nob = 6;
+            }
+            if (addressValue == 35) {
+                i2cd = "16";
+                nob = 2;
+            }
+            socket.emit("configI2C", '{"Client":{"houseID":1,"request":"WriteCMD","cmdAuto":"RequestI2C","i2ca":' + addressValue + ',"i2cd":"' + i2cd + '","NoB":' + nob + ',"Delay":200,"cmdID":' + addressValue + ',"time":' + i2cInput + '}}');
+            document.getElementById(`i2cInput1${addressValue}`).value = "";
+        }
+        function sendData3(event, addressValue) {
+            let i2cd;
+            var nob;
+            event.preventDefault();
+            let i2cInput = parseFloat(document.getElementById(`i2cInput2${addressValue}`).value) * 1000;
+            if (addressValue == 68) {
+                i2cd = "44,6";
+                nob = 6;
+            }
+            if (addressValue == 35) {
+                i2cd = "16";
+                nob = 2;
+            }
+            socket.emit("configI2C", '{"Client":{"houseID":2,"request":"WriteCMD","cmdAuto":"RequestI2C","i2ca":' + addressValue + ',"i2cd":"' + i2cd + '","NoB":' + nob + ',"Delay":200,"cmdID":' + addressValue + ',"time":' + i2cInput + '}}');
+            document.getElementById(`i2cInput2${addressValue}`).value = "";
+        }
+        var scani2c1 = document.querySelector('.scani2c1');
+        scani2c1.addEventListener('click', () => {
+            socket.emit('scan_i2c', '{"Client":{"houseID":1,"request":"ScanI2C"}}')
+            //socket.emit('C-ScanI2C', '{"houseID":1,"cmd":"SCAN I2C","lenght":2,"i2ca1":35,"i2ca2":68}')
+        })
+        var scani2c2 = document.querySelector('.scani2c2');
+        scani2c2.addEventListener('click', () => {
+            socket.emit('scan_i2c', '{"Client":{"houseID":2,"request":"ScanI2C"}}')
+            //socket.emit('C-ScanI2C', '{"houseID":2,"cmd":"SCAN I2C","lenght":2,"i2ca1":35,"i2ca2":68}')
+        })
+        socket.on('getValueTimer', (data) => {
+            let jsonData = JSON.parse(data)
+            console.log(jsonData)
+            let adc = document.getElementById("adcInput")
+            let npk485 = document.getElementById("npkInput1")
+            let ph485 = document.getElementById("phInput1")
+            let hum485 = document.getElementById("moistureInput")
+            let i2cInput135 = document.getElementById("i2cInput135")
+            let i2cInput168 = document.getElementById("i2cInput168")
+            let i2cInput235 = document.getElementById("i2cInput235")
+            let i2cInput268 = document.getElementById("i2cInput268")
+            adc.value = jsonData.adc / 1000;
+            npk485.value = jsonData.npk485 / 1000;
+            ph485.value = jsonData.pH / 1000;
+            hum485.value = jsonData.hum / 1000;
+            i2cInput135.value = jsonData.i2c135 / 1000;
+            i2cInput168.value = jsonData.i2c168 / 1000;
+            i2cInput235.value = jsonData.i2c235 / 1000;
+            i2cInput268.value = jsonData.i2c268 / 1000;
+        })
+    </script>
+</body>
+
+</html>

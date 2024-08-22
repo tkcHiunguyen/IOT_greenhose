@@ -1,0 +1,48 @@
+body {
+    /* background-image: url(https://images.pexels.com/photos/956999/milky-way-starry-sky-night-sky-star-956999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1); */
+    background-image: url(https://antimatter.vn/wp-content/uploads/2022/05/background-trang-dep-don-gian-cute.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.col-half {
+    width: 50%;
+}
+
+.row {
+    display: flex;
+}
+
+.item-right{
+    float: right;
+}
+
+.border {
+    border:1px black solid;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+.pad10{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mar5{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.right0{
+    right:0;
+    position: absolute;
+}
+
+.box{
+    min-width: 530px; 
+    position: relative; 
+    height: 250px;
+}
+
