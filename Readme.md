@@ -12,7 +12,7 @@ Server là một dự án mã nguồn mở được xây dựng bằng Node.js �
 - Di chuyển vào thư mục cần lưu trữ mã nguồn: 
  **cd server**
 - Clone kho lưu trữ từ GitHub: 
- **git clone** https://github.com/tkchieunguyen/server.git 
+ **git clone** https://github.com/tkcHiunguyen/IOT_greenhouse
 - Cài đặt các Dependency: 
  **sudo npm instal**
 - Khởi chạy chương trình: 
